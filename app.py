@@ -2,7 +2,7 @@ import streamlit as st
 import streamlit.components.v1 as stc
 import pickle
 
-with open('models/rf_model.pkl','rb') as file:
+with open('models/log_reg.pkl','rb') as file:
     Random_Forest_Model = pickle.load(file)
 
 html_temp = """
@@ -52,13 +52,13 @@ def run_ml_app():
         glucose = st.number_input('Glucose', value=0, step=1)
         blood_pressure = st.number_input('Blood Pressure', value=0, step=1)
         skin_thickness = st.number_input('Skin Thickness', value=0, step=1)
-        insulin = st.number_input('Insulin', value=0, step=1)
     
     # Add content to the right column
     with right:
         bmi = st.number_input('BMI', value=0.0, step=0.1)
         dpf = st.number_input('Diabetes Pedigree Function', value=0.0, step=0.01)
         age = st.number_input('Age', value=0, step=1)
+        insulin = st.number_input('Insulin', value=0, step=1)
     
     # Add a button for prediction
     button = st.button('Predict')
@@ -67,7 +67,6 @@ def run_ml_app():
     if button:
         # Make prediction
         result = predict(pregnancies, glucose, blood_pressure, skin_thickness, insulin, bmi, dpf, age)
-        
         # Display prediction result
         if result == 1:
             st.success('Prediction: You have diabetes')
