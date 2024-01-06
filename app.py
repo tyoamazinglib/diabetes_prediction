@@ -14,7 +14,7 @@ html_temp = """
 
 desc_temp = """
     ### Diabetes Prediction App
-    This app will be used by the insurance team to predict diabetes of the user.
+    This app will be used by the Pandas Team to predict diabetes of the user.
     #### Pandas Team
     - Vio W. Prinandita
     - Nugroho Budi Prasetyo
